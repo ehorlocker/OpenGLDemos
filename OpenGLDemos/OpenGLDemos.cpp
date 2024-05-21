@@ -1,9 +1,14 @@
 ﻿#include "OpenGLDemos.h"
+
 #include "glad/glad.h"
+
 #include "GLFW/glfw3.h"
 
+#include "imgui.h"
+#include "imgui_impl_opengl3.h"
+#include "imgui_impl_glfw.h"
 
-using namespace std;
+#include "MainMenu.h"
 
 int main()
 {
@@ -36,9 +41,26 @@ int main()
 
     std::cout << glGetString(GL_VERSION) << std::endl;
     {  
+        ImGui::CreateContext();
+        ImGuiIO& io = ImGui::GetIO(); (void)io;
+        ImGui_ImplGlfw_InitForOpenGL(window, true);
+        ImGui_ImplOpenGL3_Init("#version 330");
+        ImGui::StyleColorsDark();
+
+        // my laptop has a high dpi so we need to set the scale higher
+        io.FontGlobalScale = 3.0f;
+
         /* Loop until the user closes the window */
         while (!glfwWindowShouldClose(window))
         {
+            ImGui_ImplOpenGL3_NewFrame();
+            ImGui_ImplGlfw_NewFrame();
+            ImGui::NewFrame();
+
+            ImGui::Button("Test");
+
+            ImGui::Render();
+            ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
          
             /* Swap front and back buffers */
             glfwSwapBuffers(window);
