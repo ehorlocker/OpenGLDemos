@@ -48,3 +48,5 @@ target_link_libraries(${PROJECT_NAME}
 	glm
 	glfw
 )
+
+target_precompile_headers(${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/include/gldpch.h)
