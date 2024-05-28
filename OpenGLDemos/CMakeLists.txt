@@ -22,7 +22,8 @@ set (GLAD_SOURCES
 	GLDemo-Core/vendor/glad/src/glad.c)
 
 set (SCENE_SOURCES
-	Scenes/MainMenu/MainMenu.cpp)
+	Scenes/MainMenu/MainMenu.cpp
+	Scenes/ClearColor/ClearColor.cpp)
 
 add_executable(OpenGLDemos 
 	${SOURCES} 
@@ -31,7 +32,7 @@ add_executable(OpenGLDemos
 	${IMGUI_SOURCES}
 	${STB_IMAGE_SOURCES}
 	${GLAD_SOURCES}
-	${SCENE_SORUCES})
+	${SCENE_SOURCES})
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET OpenGLDemos PROPERTY CXX_STANDARD 20)
@@ -47,6 +48,7 @@ target_include_directories(${PROJECT_NAME}
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/vendor/imgui
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/vendor/glad/include
 		${CMAKE_CURRENT_SOURCE_DIR}/Scenes/MainMenu
+		${CMAKE_CURRENT_SOURCE_DIR}/Scenes/ClearColor
 		glm
 		glfw
 )
@@ -55,5 +57,3 @@ target_link_libraries(${PROJECT_NAME}
 	glm
 	glfw
 )
-
-target_precompile_headers(${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/include/gldpch.h)

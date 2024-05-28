@@ -9,6 +9,7 @@
 #include "imgui_impl_glfw.h"
 
 #include "MainMenu.h"
+#include "ClearColor.h"
 
 int main()
 {
@@ -50,6 +51,12 @@ int main()
         // my laptop has a high dpi so we need to set the scale higher
         io.FontGlobalScale = 3.0f;
 
+        scene::Scene* currentScene = nullptr;
+        scene::MainMenu* mainMenu = new scene::MainMenu(currentScene);
+        currentScene = mainMenu;
+
+        mainMenu->RegisterTest<scene::ClearColor>("Clear Color");
+
         /* Loop until the user closes the window */
         while (!glfwWindowShouldClose(window))
         {
@@ -57,7 +64,10 @@ int main()
             ImGui_ImplGlfw_NewFrame();
             ImGui::NewFrame();
 
-            ImGui::Button("Test");
+            currentScene->OnUpdate(0.0f);
+            currentScene->OnRender();
+
+            currentScene->OnImGuiRender();
 
             ImGui::Render();
             ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
