@@ -6,6 +6,7 @@ namespace scene {
 	class ClearColor : public Scene {
 	public:
 		ClearColor();
+		~ClearColor();
 
 		void OnRender() override;
 		void OnImGuiRender() override;

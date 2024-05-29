@@ -68,6 +68,13 @@ int main()
             currentScene->OnRender();
 
             currentScene->OnImGuiRender();
+            
+            if (currentScene != mainMenu) {
+                if (ImGui::Button("<-")) {
+                    delete currentScene;
+                    currentScene = mainMenu;
+                }
+            }
 
             ImGui::Render();
             ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

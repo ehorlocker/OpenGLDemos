@@ -1,10 +1,15 @@
 #include "ClearColor.h"
 #include "glad/glad.h"
+#include "imgui.h"
 
 namespace scene {
 	ClearColor::ClearColor()
 		: m_Color{ 0.3f, 0.4f, 1.0f, 1.0f } {
 
+	}
+
+	ClearColor::~ClearColor() {
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	}
 
 	void ClearColor::OnRender() {
@@ -13,6 +18,6 @@ namespace scene {
 	}
 
 	void ClearColor::OnImGuiRender() {
-
+		ImGui::ColorEdit4("Screen Color", m_Color);
 	}
 }
