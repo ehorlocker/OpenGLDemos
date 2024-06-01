@@ -1,10 +1,9 @@
 ﻿set(SOURCES
 	OpenGLDemos.cpp)
 
-set(GLCORE_SOURCES
-	GLDemo-Core/src/Core.cpp
-	GLDemo-Core/src/Log.cpp
-	GLDemo-Core/src/OpenGLDebug.cpp)
+set(GLCORE_LOG_SOURCES
+	GLDemo-Core/Logger/Log.cpp
+	GLDemo-Core/Logger/OpenGLDebug.cpp)
 
 set(GLUTIL_SOURCES)
 
@@ -29,7 +28,7 @@ set (SCENE_SOURCES
 
 add_executable(OpenGLDemos 
 	${SOURCES} 
-	${GLCORE_SOURCES} 
+	${GLCORE_LOG_SOURCES} 
 	${GLUTIL_SOURCES} 
 	${IMGUI_SOURCES}
 	${STB_IMAGE_SOURCES}
@@ -46,7 +45,7 @@ add_subdirectory("GLDemo-Core/vendor/spdlog")
 
 target_include_directories(${PROJECT_NAME}
 	PRIVATE
-		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/include
+		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/Logger
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Util/include
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/vendor/imgui
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/vendor/glad/include
