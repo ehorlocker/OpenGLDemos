@@ -11,35 +11,36 @@
 #include "MainMenu.h"
 #include "ClearColor.h"
 #include "Log.h"
+#include "OpenGLDebug.h"
 
 int main()
 {
 	GLFWwindow* window;
 
-    GLCore::Log::Init();
-
     /* Initialize the library */
-    if (!glfwInit())
+    if (!glfwInit()) {
         return -1;
-
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+    }
+        
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     /* Create a windowed mode window and its OpenGL context */
     window = glfwCreateWindow(1920, 1080, "OpenGLDemos", NULL, NULL);
-    if (!window)
-    {
+    if (!window) {
         glfwTerminate();
         return -1;
     }
     glfwMakeContextCurrent(window);
 
+    GLCore::Log::Init();
+
     glfwSwapInterval(1);
 
     /* Call after making valid OpenGL context */
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cerr << "Failed to initialize GLAD" << std::endl;
+        LOG_ERROR("Failed to initialize GLAD");
         return -1;
     }
 
@@ -59,6 +60,8 @@ int main()
         currentScene = mainMenu;
 
         mainMenu->RegisterTest<scene::ClearColor>("Clear Color");
+
+        GLCore::EnableGLDebugging();
 
         /* Loop until the user closes the window */
         while (!glfwWindowShouldClose(window))

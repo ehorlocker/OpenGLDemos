@@ -3,7 +3,8 @@
 
 set(GLCORE_SOURCES
 	GLDemo-Core/src/Core.cpp
-	GLDemo-Core/src/Log.cpp)
+	GLDemo-Core/src/Log.cpp
+	GLDemo-Core/src/OpenGLDebug.cpp)
 
 set(GLUTIL_SOURCES)
 
