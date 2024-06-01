@@ -10,10 +10,13 @@
 
 #include "MainMenu.h"
 #include "ClearColor.h"
+#include "Log.h"
 
 int main()
 {
 	GLFWwindow* window;
+
+    GLCore::Log::Init();
 
     /* Initialize the library */
     if (!glfwInit())

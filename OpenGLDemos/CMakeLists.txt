@@ -2,7 +2,8 @@
 	OpenGLDemos.cpp)
 
 set(GLCORE_SOURCES
-	GLDemo-Core/src/Core.cpp)
+	GLDemo-Core/src/Core.cpp
+	GLDemo-Core/src/Log.cpp)
 
 set(GLUTIL_SOURCES)
 
@@ -40,6 +41,7 @@ endif()
 
 add_subdirectory("GLDemo-Core/vendor/glfw")
 add_subdirectory("GLDemo-Core/vendor/glm")
+add_subdirectory("GLDemo-Core/vendor/spdlog")
 
 target_include_directories(${PROJECT_NAME}
 	PRIVATE
@@ -51,9 +53,11 @@ target_include_directories(${PROJECT_NAME}
 		${CMAKE_CURRENT_SOURCE_DIR}/Scenes/ClearColor
 		glm
 		glfw
+		spdlog
 )
 
 target_link_libraries(${PROJECT_NAME} 
 	glm
 	glfw
+	spdlog
 )
