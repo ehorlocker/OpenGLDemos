@@ -5,6 +5,11 @@ set(GLCORE_LOG_SOURCES
 	GLDemo-Core/Logger/Log.cpp
 	GLDemo-Core/Logger/OpenGLDebug.cpp)
 
+set(GLCORE_VB_SOURCES
+	GLDemo-Core/VertexBuffer/VertexBuffer.cpp
+	GLDemo-Core/VertexBuffer/StaticVertexBuffer.cpp
+	GLDemo-Core/VertexBuffer/DynamicVertexBuffer.cpp)
+
 set(GLUTIL_SOURCES)
 
 set(IMGUI_SOURCES
@@ -24,11 +29,13 @@ set (GLAD_SOURCES
 
 set (SCENE_SOURCES
 	Scenes/MainMenu/MainMenu.cpp
-	Scenes/ClearColor/ClearColor.cpp)
+	Scenes/ClearColor/ClearColor.cpp
+	Scenes/BatchRendering/BatchRendering.cpp)
 
 add_executable(OpenGLDemos 
 	${SOURCES} 
 	${GLCORE_LOG_SOURCES} 
+	${GLCORE_VB_SOURCES}
 	${GLUTIL_SOURCES} 
 	${IMGUI_SOURCES}
 	${STB_IMAGE_SOURCES}
@@ -46,11 +53,13 @@ add_subdirectory("GLDemo-Core/vendor/spdlog")
 target_include_directories(${PROJECT_NAME}
 	PRIVATE
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/Logger
+		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/VertexBuffer
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Util/include
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/vendor/imgui
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/vendor/glad/include
 		${CMAKE_CURRENT_SOURCE_DIR}/Scenes/MainMenu
 		${CMAKE_CURRENT_SOURCE_DIR}/Scenes/ClearColor
+		${CMAKE_CURRENT_SOURCE_DIR}/Scenes/BatchRendering
 		glm
 		glfw
 		spdlog
