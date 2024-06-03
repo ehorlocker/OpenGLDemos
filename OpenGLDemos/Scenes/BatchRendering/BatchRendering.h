@@ -1,7 +1,8 @@
 #pragma once
 
+#include <memory>
 #include "Scene.h"
-#include "DynamicVertexBuffer.h"
+#include "GLCore.h"
 
 namespace scene {
 	class BatchRendering : public Scene {
@@ -15,6 +16,7 @@ namespace scene {
 	private:
 		unsigned int m_QuadCount;
 		unsigned int m_DrawCalls;
-		GLCore::DynamicVertexBuffer* m_DynamicVertexBuffer;
+		std::unique_ptr<GLCore::DynamicVertexBuffer> m_DynamicVertexBuffer;
+		std::unique_ptr<GLCore::VertexBufferLayout> m_DynamicVertexBuffer;
 	};
 }
