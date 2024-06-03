@@ -27,6 +27,9 @@ namespace scene {
 		m_VertexArray =
 			std::make_unique<GLCore::VertexArray>();
 
+		m_Renderer =
+			std::make_unique<GLCore::Renderer>();
+
 		m_VertexBufferLayout->Push<float>(2);
 		m_VertexBufferLayout->Push<float>(2);
 		m_VertexArray->AddBuffer(*m_VertexBuffer, *m_VertexBufferLayout);
@@ -35,8 +38,6 @@ namespace scene {
 		m_IndexBuffer->UpdateData(indicies, 2 * 3 * sizeof(unsigned int), 0);
 
 		/*
-        m_Renderer = new Renderer();
-
         glm::mat4 mvp = m_Projection * m_Model * m_View;
 
         m_Shader = new Shader("res/shaders/basic.shader");
@@ -50,6 +51,7 @@ namespace scene {
 	}
 
 	void BatchRendering::OnRender() {
+		m_Renderer->Clear();
 	}
 
 	void BatchRendering::OnImGuiRender() {

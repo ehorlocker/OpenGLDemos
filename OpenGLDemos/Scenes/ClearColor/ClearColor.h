@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Scene.h"
+#include "GLCore.h"
 
 namespace scene {
 	class ClearColor : public Scene {

@@ -14,7 +14,7 @@ namespace GLCore {
 			glBufferSubData(GL_ARRAY_BUFFER, offset, size, data);
 		}
 		else {
-			LOG_ERROR("Data size too large for dynamic vertex buffer")
+			LOG_ERROR("Data size too large for dynamic vertex buffer");
 		}
 	}
 }

@@ -10,3 +10,5 @@
 
 #include "StaticIndexBuffer.h"
 #include "DynamicIndexBuffer.h"
+
+#include "Renderer.h"
