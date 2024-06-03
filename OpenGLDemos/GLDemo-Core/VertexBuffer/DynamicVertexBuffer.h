@@ -4,6 +4,8 @@
 
 namespace GLCore {
 	class DynamicVertexBuffer : public VertexBuffer {
+	private:
+		unsigned int m_Size;
 	public:
 		DynamicVertexBuffer(unsigned int size);
 

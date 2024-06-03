@@ -1,6 +1,12 @@
-#include "VertexArray/VertexArray.h"
-#include "Logger/Log.h"
-#include "Logger/OpenGLDebug.h"
-#include "VertexBuffer/DynamicVertexBuffer.h"
-#include "VertexBuffer/StaticVertexBuffer.h"
-#include "VertexBufferLayout/VertexBufferLayout.h"
+#include "Log.h"
+#include "OpenGLDebug.h"
+
+#include "DynamicVertexBuffer.h"
+#include "StaticVertexBuffer.h"
+
+#include "VertexBufferLayout.h"
+
+#include "VertexArray.h"
+
+#include "StaticIndexBuffer.h"
+#include "DynamicIndexBuffer.h"

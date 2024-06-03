@@ -1,3 +1,5 @@
+#pragma once
+
 #include "VertexBuffer.h"
 
 namespace GLCore {

@@ -10,10 +10,13 @@ set(GLCORE_VB_SOURCES
 	GLDemo-Core/VertexBuffer/StaticVertexBuffer.cpp
 	GLDemo-Core/VertexBuffer/DynamicVertexBuffer.cpp)
 
-set(GLCORE_VB_LAYOUT_SOURCES)
-
 set(GLCORE_VA_SOURCES
 	GLDemo-Core/VertexArray/VertexArray.cpp)
+
+set(GLCORE_IB_SOURCES
+	GLDemo-Core/IndexBuffer/IndexBuffer.cpp
+	GLDemo-Core/IndexBuffer/StaticIndexBuffer.cpp
+	GLDemo-Core/IndexBuffer/DynamicIndexBuffer.cpp)
 
 set(GLUTIL_SOURCES)
 
@@ -40,8 +43,9 @@ set (SCENE_SOURCES
 add_executable(OpenGLDemos 
 	${SOURCES} 
 	${GLCORE_LOG_SOURCES} 
-	${GLCORE_VB_SOURCES}
 	${GLCORE_VB_LAYOUT_SOURCES}
+	${GLCORE_VA_SOURCES}
+	${GLCORE_IB_SOURCES}
 	${GLUTIL_SOURCES} 
 	${IMGUI_SOURCES}
 	${STB_IMAGE_SOURCES}
@@ -63,6 +67,7 @@ target_include_directories(${PROJECT_NAME}
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/VertexBuffer
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/VertexBufferLayout
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/VertexArray
+		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/IndexBuffer
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Util/include
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/vendor/imgui
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/vendor/glad/include

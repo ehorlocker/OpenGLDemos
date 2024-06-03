@@ -16,7 +16,9 @@ namespace scene {
 	private:
 		unsigned int m_QuadCount;
 		unsigned int m_DrawCalls;
-		std::unique_ptr<GLCore::DynamicVertexBuffer> m_DynamicVertexBuffer;
-		std::unique_ptr<GLCore::VertexBufferLayout> m_DynamicVertexBuffer;
+		std::unique_ptr<GLCore::DynamicVertexBuffer> m_VertexBuffer;
+		std::unique_ptr<GLCore::VertexBufferLayout> m_VertexBufferLayout;
+		std::unique_ptr<GLCore::VertexArray> m_VertexArray;
+		std::unique_ptr<GLCore::DynamicIndexBuffer> m_IndexBuffer;
 	};
 }
