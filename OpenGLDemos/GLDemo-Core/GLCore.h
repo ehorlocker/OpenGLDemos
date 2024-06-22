@@ -4,11 +4,10 @@
 #include "DynamicVertexBuffer.h"
 #include "StaticVertexBuffer.h"
 
-#include "VertexBufferLayout.h"
-
-#include "VertexArray.h"
-
 #include "StaticIndexBuffer.h"
 #include "DynamicIndexBuffer.h"
 
+#include "VertexBufferLayout.h"
+#include "VertexArray.h"
 #include "Renderer.h"
+#include "Shader.h"

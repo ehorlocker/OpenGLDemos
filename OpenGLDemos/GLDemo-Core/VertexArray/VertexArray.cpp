@@ -5,9 +5,7 @@
 
 namespace GLCore {
 	VertexArray::VertexArray() {
-		LOG_TRACE(m_RendererID);
 		glGenVertexArrays(1, &m_RendererID);
-		LOG_TRACE(m_RendererID);
 	}
 
 	VertexArray::~VertexArray() {
@@ -15,7 +13,6 @@ namespace GLCore {
 	}
 
 	void VertexArray::Bind() const {
-		LOG_TRACE(m_RendererID);
 		glBindVertexArray(m_RendererID);
 	}
 

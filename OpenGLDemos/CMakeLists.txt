@@ -21,6 +21,9 @@ set(GLCORE_IB_SOURCES
 set(GLCORE_RENDERER_SOURCES
 	GLDemo-Core/Renderer/Renderer.cpp)
 
+set(GLCORE_SHADER_SOURCES
+	GLDemo-Core/Shader/Shader.cpp)
+
 set(GLUTIL_SOURCES)
 
 set(IMGUI_SOURCES
@@ -74,6 +77,7 @@ target_include_directories(${PROJECT_NAME}
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/VertexArray
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/IndexBuffer
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/Renderer
+		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/Shader
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Util/include
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/vendor/imgui
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/vendor/glad/include
