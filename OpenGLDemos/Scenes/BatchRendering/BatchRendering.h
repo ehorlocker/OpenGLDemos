@@ -14,8 +14,11 @@ namespace scene {
 		void OnImGuiRender() override;
 
 	private:
-		unsigned int m_QuadCount;
-		unsigned int m_DrawCalls;
+		int m_QuadCount;
+		int m_DrawCalls;
+		glm::mat4 m_Projection;
+		glm::mat4 m_Model;
+		glm::mat4 m_View;
 		std::unique_ptr<GLCore::DynamicVertexBuffer> m_VertexBuffer;
 		std::unique_ptr<GLCore::VertexBufferLayout> m_VertexBufferLayout;
 		std::unique_ptr<GLCore::VertexArray> m_VertexArray;

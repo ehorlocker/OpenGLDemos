@@ -1,8 +1,12 @@
 #include "BatchRendering.h"
+#include "imgui.h"
+#include "glm/gtc/matrix_transform.hpp"
 
 namespace scene {
 	BatchRendering::BatchRendering()
-		: m_QuadCount(0), m_DrawCalls(1) {
+		: m_QuadCount(0), m_DrawCalls(1), 
+		m_Projection(glm::ortho(0.0f, 1920.0f, 0.0f, 1080.0f, -1.0f, 1.0f)),
+		m_View(glm::mat4(1.0f)), m_Model(glm::mat4(1.0f)) {
 		float positions[] = {
 			-50.0f, -50.0f, 0.0f, 0.0f, // 0
 			 50.0f, -50.0f, 1.0f, 0.0f, // 1
@@ -39,8 +43,6 @@ namespace scene {
 
 		m_VertexBuffer->UpdateData(positions, 4 * 4 * sizeof(float), 0);
 		m_IndexBuffer->UpdateData(indicies, 2 * 3 * sizeof(unsigned int), 0);
-
-
 	}
 
 	BatchRendering::~BatchRendering() {
@@ -49,9 +51,18 @@ namespace scene {
 
 	void BatchRendering::OnRender() {
 		m_Renderer->Clear();
-		m_Renderer->Draw(*m_VertexArray, *m_IndexBuffer, *m_Shader);
+		m_Model = glm::translate(glm::mat4(1.0f), glm::vec3(850, 490, 0));
+		glm::mat4 mvp = m_Projection * m_Model * m_View;
+		m_Shader->Bind();
+		m_Shader->SetUniformMat4f("u_MVP", mvp);
+		m_Shader->SetUniform4f("u_Color", 1.0, 1.0, 1.0, 1.0);
+		m_Renderer->DrawDynamic(*m_VertexArray, *m_IndexBuffer, 6, *m_Shader);
 	}
 
 	void BatchRendering::OnImGuiRender() {
+		ImGui::Text("Number of squares");
+		ImGui::SliderInt("##quad", &m_QuadCount, 0, 100);
+		ImGui::Text("Number of draw calls");
+		ImGui::SliderInt("##draw", &m_DrawCalls, 1, 100);
 	}
 }

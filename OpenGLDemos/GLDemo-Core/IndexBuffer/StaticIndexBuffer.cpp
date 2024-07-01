@@ -12,5 +12,9 @@ namespace GLCore {
 	void StaticIndexBuffer::UpdateData(unsigned int* data, unsigned int size, unsigned int offset) {
 		LOG_ERROR("Static index buffer object cannot update data");
 	}
+
+	unsigned int StaticIndexBuffer::GetCount() const {
+		return m_Count;
+	}
 }
 

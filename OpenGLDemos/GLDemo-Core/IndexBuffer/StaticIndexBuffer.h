@@ -9,5 +9,6 @@ namespace GLCore {
 		StaticIndexBuffer(unsigned int* data, unsigned int count);
 
 		void UpdateData(unsigned int* data, unsigned int size, unsigned int offset);
+		unsigned int GetCount() const;
 	};
 }
