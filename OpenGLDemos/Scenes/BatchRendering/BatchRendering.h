@@ -21,5 +21,6 @@ namespace scene {
 		std::unique_ptr<GLCore::VertexArray> m_VertexArray;
 		std::unique_ptr<GLCore::DynamicIndexBuffer> m_IndexBuffer;
 		std::unique_ptr<GLCore::Renderer> m_Renderer;
+		std::unique_ptr<GLCore::Shader> m_Shader;
 	};
 }

@@ -54,6 +54,7 @@ add_executable(OpenGLDemos
 	${GLCORE_VB_SOURCES}
 	${GLCORE_IB_SOURCES}
 	${GLCORE_RENDERER_SOURCES}
+	${GLCORE_SHADER_SOURCES}
 	${GLUTIL_SOURCES} 
 	${IMGUI_SOURCES}
 	${STB_IMAGE_SOURCES}
@@ -94,3 +95,9 @@ target_link_libraries(${PROJECT_NAME}
 	glfw
 	spdlog
 )
+
+ADD_CUSTOM_COMMAND(TARGET ${PROJECT_NAME} PRE_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy_directory
+                       ${CMAKE_CURRENT_SOURCE_DIR}/Scenes/res
+                       ${CMAKE_BINARY_DIR}/OpenGLDemos/res
+                   COMMENT "Copying res folder")

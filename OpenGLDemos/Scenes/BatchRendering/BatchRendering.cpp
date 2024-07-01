@@ -30,6 +30,9 @@ namespace scene {
 		m_Renderer =
 			std::make_unique<GLCore::Renderer>();
 
+		m_Shader = 
+			std::make_unique<GLCore::Shader>("res/batchrendering.vertex.glsl", "res/batchrendering.fragment.glsl");
+
 		m_VertexBufferLayout->Push<float>(2);
 		m_VertexBufferLayout->Push<float>(2);
 		m_VertexArray->AddBuffer(*m_VertexBuffer, *m_VertexBufferLayout);
@@ -37,13 +40,7 @@ namespace scene {
 		m_VertexBuffer->UpdateData(positions, 4 * 4 * sizeof(float), 0);
 		m_IndexBuffer->UpdateData(indicies, 2 * 3 * sizeof(unsigned int), 0);
 
-		/*
-        glm::mat4 mvp = m_Projection * m_Model * m_View;
 
-        m_Shader = new Shader("res/shaders/basic.shader");
-        m_Shader->Bind();
-        m_Shader->SetUniformMat4f("u_MVP", mvp);
-		*/
 	}
 
 	BatchRendering::~BatchRendering() {
@@ -52,6 +49,7 @@ namespace scene {
 
 	void BatchRendering::OnRender() {
 		m_Renderer->Clear();
+		m_Renderer->Draw(*m_VertexArray, *m_IndexBuffer, *m_Shader);
 	}
 
 	void BatchRendering::OnImGuiRender() {

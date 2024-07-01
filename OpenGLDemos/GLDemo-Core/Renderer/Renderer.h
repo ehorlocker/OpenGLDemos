@@ -7,6 +7,5 @@ namespace GLCore {
 		~Renderer() {}
 
 		void Clear();
-		//Draw(const IndexBuffer& indexBuffer, const VertexArray& vertexArray, const Shader& shader) const
 	};
 }
