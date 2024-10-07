@@ -10,7 +10,7 @@
 
 #include "MainMenu.h"
 #include "ClearColor.h"
-#include "BatchRendering.h"
+#include "Squares.h"
 
 #include "Log.h"
 #include "OpenGLDebug.h"
@@ -62,7 +62,7 @@ int main()
         currentScene = mainMenu;
 
         mainMenu->RegisterTest<scene::ClearColor>("Clear Color");
-        mainMenu->RegisterTest<scene::BatchRendering>("Batch Rendering");
+        mainMenu->RegisterTest<scene::Squares>("2D Squares");
 
         GLCore::EnableGLDebugging();
 

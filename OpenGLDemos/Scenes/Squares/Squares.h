@@ -1,14 +1,16 @@
 #pragma once
 
 #include <memory>
+#include <vector>
+#include <array>
 #include "Scene.h"
 #include "GLCore.h"
 
 namespace scene {
-	class BatchRendering : public Scene {
+	class Squares : public Scene {
 	public:
-		BatchRendering();
-		~BatchRendering();
+		Squares();
+		~Squares();
 
 		void OnRender() override;
 		void OnImGuiRender() override;
@@ -16,6 +18,8 @@ namespace scene {
 	private:
 		int m_QuadCount;
 		int m_DrawCalls;
+		std::vector<std::pair<int, int>> m_Transforms;
+		std::vector<std::array<float, 4>> m_Colors;
 		glm::mat4 m_Projection;
 		glm::mat4 m_Model;
 		glm::mat4 m_View;

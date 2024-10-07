@@ -1,6 +1,7 @@
 #include "ClearColor.h"
 #include "glad/glad.h"
 #include "imgui.h"
+#include <iostream>
 
 namespace scene {
 	ClearColor::ClearColor()

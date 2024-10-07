@@ -44,7 +44,7 @@ set (GLAD_SOURCES
 set (SCENE_SOURCES
 	Scenes/MainMenu/MainMenu.cpp
 	Scenes/ClearColor/ClearColor.cpp
-	Scenes/BatchRendering/BatchRendering.cpp)
+	Scenes/Squares/Squares.cpp)
 
 add_executable(OpenGLDemos 
 	${SOURCES} 
@@ -84,7 +84,7 @@ target_include_directories(${PROJECT_NAME}
 		${CMAKE_CURRENT_SOURCE_DIR}/GLDemo-Core/vendor/glad/include
 		${CMAKE_CURRENT_SOURCE_DIR}/Scenes/MainMenu
 		${CMAKE_CURRENT_SOURCE_DIR}/Scenes/ClearColor
-		${CMAKE_CURRENT_SOURCE_DIR}/Scenes/BatchRendering
+		${CMAKE_CURRENT_SOURCE_DIR}/Scenes/Squares
 		glm
 		glfw
 		spdlog
